@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# If it is not running iteratively, don't do anything
+case $- in
+    *i*) ;;
+      *) echo Please run this script Iteratively, I mean use \"source\" instead of \"\./\" && exit;;
+esac
+
+# Install the dependencies
+echo Installing system dependencies and libraries && echo
+source $(pwd)/commands/install
+
+# Run Bot
+source $(pwd)/commands/run

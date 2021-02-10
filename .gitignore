@@ -1,0 +1,15 @@
+# Django
+migrations
+
+# Pyrogram
+*.session
+*.session-journal
+
+# python3 virtual environment
+env
+
+# Python
+__pycache__
+
+# vscode
+.vscode

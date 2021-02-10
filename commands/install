@@ -1,0 +1,49 @@
+#!/bin/bash
+
+# If it is not running iteratively, don't do anything
+case $- in
+    *i*) ;;
+      *) echo Please run this script Iteratively, I mean use \"source\" instead of \"\./\" && exit;;
+esac
+
+# Installing some packages on linux
+echo && echo Installing gcc, libpq-dev, python3, python3-pip, python3-wheel, lolcat, python3-venv, mysql-server and mysql-client && echo
+sudo apt-get install gcc libpq-dev python3 python3-pip python3-wheel python3-venv lolcat mysql-server mysql-client libmysqlclient-dev -y
+echo && echo Checking if python3 is installed | lolcat -d 1 && echo
+python3 --version
+echo && echo Checking if mysql is installed | lolcat -d 1 && echo
+mysql --version
+echo && echo Checking if lolcat is installed | lolcat -d 1 && echo
+lolcat -v
+echo && echo Checking if pip3 is installed | lolcat -d 1 && echo
+pip3 --version
+echo && echo And python3, python3-pip, lolcat, python3-venv, mysql-server and mysql-client should be installed on your system now | lolcat -d 1 && echo
+
+# Setting shortcuts and environment variables
+echo && echo Loading shortcuts and environment variables | lolcat -d 1 && echo
+source $(pwd)/commands/shortcuts
+
+# Creating a virtual environment
+echo && echo Creating a virtual environment | lolcat -d 1 && echo
+python3 -m venv env
+
+# Activating the virtual environment
+echo && echo Activating the virtual environment | lolcat -d 1 && echo
+source ./env/bin/activate
+
+# Upgrade wheel package cause it's not up-to-date in some ops
+pip3 install wheel
+pip3 install --upgrade pip setuptools wheel
+
+# Installing requirements for project
+echo && echo Installing the requirements | lolcat -d 1 && echo
+pip3 install -r requirements.txt
+
+# Everything is done
+echo && echo "The installation process is done" | lolcat -d 1
+echo "After checking the log, if there is no problem, you can run the bot with \"run\" command" | lolcat -d 1
+echo "Press any button to continue to mysql configuration" | lolcat -d 1
+read temp
+
+# Configuration for mysql
+source ./commands/mysql_config

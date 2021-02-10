@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# Clear
+clear
+
+# Simply run the bot
+echo starting the bot | lolcat -d 1
+python3 main.py

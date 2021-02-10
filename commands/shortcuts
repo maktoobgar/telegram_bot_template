@@ -1,0 +1,5 @@
+#!/bin/bash
+
+alias activate="source "$(pwd)"/env/bin/activate"
+alias run="clear && echo starting the server | lolcat -d 1 && python3 "$(pwd)"/main.py"
+alias db_test="clear && python3 $(pwd)/db_test.py"

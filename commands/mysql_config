@@ -1,0 +1,12 @@
+#!/bin/bash
+
+
+clear
+echo run these commands down here: | lolcat -d 1 && echo
+echo "CREATE USER 'bot'@'%' IDENTIFIED BY 'Bot_123456';"
+echo "GRANT ALL PRIVILEGES ON *.* TO 'bot'@'%';"
+echo "CREATE DATABASE bot_db DEFAULT CHARACTER SET utf8mb4  DEFAULT COLLATE utf8mb4_general_ci;"
+echo "DEFAULT COLLATE utf8mb4_general_ci;"
+echo "exit"
+echo && echo done | lolcat -d 1
+sudo mysql -u root
