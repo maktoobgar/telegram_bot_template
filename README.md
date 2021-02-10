@@ -43,7 +43,8 @@ Dependencies:
 Open up your terminal, Go to the main project directory and just run:
 ```
 source ./commands/install
-# some steps need to be done manually in previous command, pay attention to them, Those will be asked in the process
+# some steps need to be done manually in previous command
+# pay attention to them, Those will be asked in the process
 python3 manage.py makemigrations users
 python3 manage.py migrate
 ```
@@ -54,7 +55,8 @@ Install [Python](https://www.python.org/downloads/) and [MySQL](https://www.mysq
 Open up your terminal, Go to the main project directory and run:
 ```
 source ./win_commands/install
-# some steps need to be done manually in previous command, pay attention to them, Those will be asked in the process
+# some steps need to be done manually in previous command
+# pay attention to them, Those will be asked in the process
 python3 manage.py makemigrations users
 python3 manage.py migrate
 ```
@@ -72,6 +74,7 @@ If you don't know how to do that, here they are:
 CREATE USER 'bot'@'%' IDENTIFIED BY 'Bot_123456';
 GRANT ALL PRIVILEGES ON *.* TO 'bot'@'%';
 CREATE DATABASE bot_db DEFAULT CHARACTER SET utf8mb4  DEFAULT COLLATE utf8mb4_general_ci;
+DEFAULT COLLATE utf8mb4_general_ci;
 ```
 
 ### config.ini
