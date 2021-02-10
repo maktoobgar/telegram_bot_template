@@ -87,16 +87,16 @@ Set the blank guided with comment data on "[main<span>.</span>py](main.py)" file
 All done.\
 Now lets use it.
 ## Usage
-
-* __Linux__:\
-    Everytime that you open up the project directory with a new terminal, inside main project directory, do:
-    ```
-    source ./commands/shortcuts
-    ```
-    and after that use `run` to start bot.
-* __Windows__:\
-    Everytime that you open up the project directory with a new terminal, inside main project directory, do:
-    ```
-    source ./win_commands/shortcuts
-    ```
-    and after that use `run` to start bot.
+All you need to do is `python3 main.py` but i automated that in one single word:
+### __Linux__:
+Everytime that you open up the project directory with a new terminal, inside main project directory, do:
+```
+source ./commands/shortcuts
+```
+and after that use `run` to start bot.
+### __Windows__:
+Everytime that you open up the project directory with a new terminal, inside main project directory, do:
+```
+source ./win_commands/shortcuts
+```
+and after that use `run` to start bot.
