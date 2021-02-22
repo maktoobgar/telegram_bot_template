@@ -35,6 +35,7 @@ Dependencies:
     * mysqlclient
     * wheel
     * tgcrypto
+    * json (built-in)
 3. Python3-venv (Python Virtual Environment)
 4. MySQL
 
@@ -49,10 +50,16 @@ python3 manage.py makemigrations users
 python3 manage.py migrate
 ```
 All of the top Dependencies should be installed on your system already and if you finished the first installation command process successfully, you do not need to do the [MySQL](#MySQL) chapter in [Configuration](#configuration) section.
+
 ### Windows
 
-Install [Python](https://www.python.org/downloads/) and [MySQL](https://www.mysql.com/downloads/) individually. (I can't automate that process)\
-Open up your terminal, Go to the main project directory and run:
+Install [Git](https://git-scm.com/download/win), [Microsoft Visual C++ 2015](https://www.microsoft.com/en-us/download/details.aspx?id=52685), [Python](https://www.python.org/downloads/), [MySQL](https://www.mysql.com/downloads/) and Microsoft Visual C++ v14 (read down for installation instructions) individually. (I can't automate that process, sorry)\
+⚠️ Note: for installing "Microsoft Visual C++ v14" you need to use [Microsoft C++ Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/). So start Microsoft C++ Build Tools, let it download, get to **Indivisual Components** section and search "C++" and choose down selected item/items or a higher version of that and click install.\
+![](./pics/build-tools.png)
+⚠️ Note: If you had any error in down up comming instructions from wheel installation(an error for mysql) like this one picture down below, download highest version of mysqlclient from [here](https://www.lfd.uci.edu/~gohlke/pythonlibs/#mysqlclient) and install it by pip like `pip3 install mysqlclient-1.4.6-cp39-cp39-win_amd64.whl` and you should have no other problems.
+![](./pics/wheel-error.png)
+
+Open up **git bash** (windows cmd or powershell will not work), Go to the main project directory and run:
 ```
 source ./win_commands/install
 # some steps need to be done manually in previous command
@@ -68,12 +75,12 @@ Attention: if you already successfully installed all of the dependencies and you
 
 ### MySQL
 
-In MySQL create a user called "__bot__" with "**Bot_123456**" password and then give it right privileges and create a database called "**bot_db**".\
+In MySQL create a user called "__bot__" with "**Bot_123456**" password and then give it right privileges and create a database called "**group_manager_db**".\
 If you don't know how to do that, here they are:
 ```
 CREATE USER 'bot'@'%' IDENTIFIED BY 'Bot_123456';
 GRANT ALL PRIVILEGES ON *.* TO 'bot'@'%';
-CREATE DATABASE bot_db DEFAULT CHARACTER SET utf8mb4  DEFAULT COLLATE utf8mb4_general_ci;
+CREATE DATABASE group_manager_db DEFAULT CHARACTER SET utf8mb4  DEFAULT COLLATE utf8mb4_general_ci;
 DEFAULT COLLATE utf8mb4_general_ci;
 ```
 
@@ -86,15 +93,21 @@ At the end, change the information in "[config.ini](config.ini)" file with your 
 Set the blank guided with comment data on "[main<span>.</span>py](main.py)" file with your __Bot Name__, your __Username__ or __ID__ and __Bot Username__.\
 All done.\
 Now lets use it.
+
 ## Usage
+
 All you need to do is `python3 main.py` but i automated that in one single word:
+
 ### __Linux__:
+
 Everytime that you open up the project directory with a new terminal, inside main project directory, do:
 ```
 source ./commands/shortcuts
 ```
 and after that use `run` to start bot.
+
 ### __Windows__:
+
 Everytime that you open up the project directory with a new terminal, inside main project directory, do:
 ```
 source ./win_commands/shortcuts
