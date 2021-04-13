@@ -1,4 +1,0 @@
-#!/bin/bash
-
-alias activate="source "$(pwd)"/env/bin/activate"
-alias run="cls && echo starting the server && python3 "$(pwd)"/main.py"
