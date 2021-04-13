@@ -1,13 +1,14 @@
 import os
+from decouple import config
 
 # Our database settings
 DATABASES = {
     'default': {
-        "ENGINE": os.environ.get("SQL_ENGINE", "django.db.backends.mysql"),
-        "NAME": os.environ.get("SQL_DATABASE", "bot_db"),
-        "USER": os.environ.get("SQL_USER", "bot"),
-        "PASSWORD": os.environ.get("SQL_PASSWORD", "Bot_123456"),
-        "HOST": os.environ.get("SQL_HOST", "localhost"),
+        "ENGINE": config("SQL_ENGINE", default="django.db.backends.mysql", cast=str),
+        "NAME": config("SQL_DATABASE", default="test_db", cast=str),
+        "USER": config("SQL_USER", default="test", cast=str),
+        "PASSWORD": config("SQL_PASSWORD", default="!_T123456789T_!", cast=str),
+        "HOST": config("SQL_HOST", default="localhost", cast=str),
     }
 }
 
@@ -19,4 +20,4 @@ INSTALLED_APPS = [
 
 # The secret key for database connection
 # Warnning: Change it when you are in production
-SECRET_KEY = '6few3n$i_q_o@lZdlxk81%wcx3!*5r29yu629&d97!hikat9fa'
+SECRET_KEY = config('SECRET_KEY', default='6few3n$i_q_o@lZdlxk81%wcx3!*5r29yu629&d97!hikat9fa', cast=str)

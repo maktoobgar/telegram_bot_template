@@ -21,7 +21,8 @@ echo && echo And python3, python3-pip, lolcat, python3-venv, mysql-server and my
 
 # Setting shortcuts and environment variables
 echo && echo Loading shortcuts and environment variables | lolcat -d 1 && echo
-source $(pwd)/commands/shortcuts
+alias activate="source "$(pwd)"/env/bin/activate"
+alias stickers="echo stickers:;echo ⚜️ = initial commit;echo 🐛 = bug fixing;echo 🔧 = updated functionality;echo ✅ = new feature added;echo ♻️  = code review;echo ❌ = removed a file or folder;echo 🔗 = merging two branches"
 
 # Creating a virtual environment
 echo && echo Creating a virtual environment | lolcat -d 1 && echo
@@ -32,6 +33,7 @@ echo && echo Activating the virtual environment | lolcat -d 1 && echo
 source ./env/bin/activate
 
 # Upgrade wheel package cause it's not up-to-date in some ops
+echo && echo Installing wheel and upgrading pip and setuptools first | lolcat -d 1 && echo
 pip3 install wheel
 pip3 install --upgrade pip setuptools wheel
 
@@ -41,9 +43,17 @@ pip3 install -r requirements.txt
 
 # Everything is done
 echo && echo "The installation process is done" | lolcat -d 1
-echo "After checking the log, if there is no problem, you can run the bot with \"run\" command" | lolcat -d 1
+echo "After checking the log, if there is no problem, you can run the bot with \"python3 main.py\" command" | lolcat -d 1
 echo "Press any button to continue to mysql configuration" | lolcat -d 1
 read temp
 
 # Configuration for mysql
-source ./commands/mysql_config
+python3 -c 'import random; print("SECRET_KEY=", end=""); print("".join([random.choice("abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)") for i in range(50)]))' > ./.env
+python3 ./commands/mysql_config.py
+
+# Configuration for pyrogram
+"" > config.ini
+python3 ./commands/security.py
+
+# Configuration for pyrogram
+python3 ./commands/config.py

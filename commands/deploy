@@ -10,5 +10,10 @@ esac
 echo Installing system dependencies and libraries && echo
 source $(pwd)/commands/install
 
+# Migrations
+echo Database migration && echo
+python3 manage.py makemigrations users groups
+python3 manage.py migrate
+
 # Run Bot
-source $(pwd)/commands/run
+python3 main.py
