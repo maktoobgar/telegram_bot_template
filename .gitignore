@@ -8,6 +8,10 @@ migrations
 # python3 virtual environment
 env
 
+# config files
+config.ini
+.env
+
 # Python
 __pycache__
 
