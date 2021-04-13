@@ -21,3 +21,6 @@ INSTALLED_APPS = [
 # The secret key for database connection
 # Warnning: Change it when you are in production
 SECRET_KEY = config('SECRET_KEY', default='6few3n$i_q_o@lZdlxk81%wcx3!*5r29yu629&d97!hikat9fa', cast=str)
+
+# The field in models to be Primarykey
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
