@@ -14,7 +14,6 @@ DATABASES = {
 
 # Our folders knows as apps
 INSTALLED_APPS = [
-    'rest_framework',
     'users',
 ]
 
