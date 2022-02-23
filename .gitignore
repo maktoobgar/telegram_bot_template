@@ -8,6 +8,9 @@ migrations
 # python3 virtual environment
 env
 
+# git
+.commit
+
 # config files
 config.ini
 .env
