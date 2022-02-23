@@ -3,6 +3,6 @@ wheel>=0.36.2
 django>=3.1.6
 djangorestframework>=3.12.2
 pyrogram>=1.2.6
-mysqlclient>=2.0.1
+psycopg2>=2.9.3
 tgcrypto>=1.2.2
 python-decouple>=3.4
